@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+
+
+
+
+
+<div class="container" id="divMain">
+
+
+    <!-- Creating A Database From UserInput -->
+    <div class="container">
+        <h1 style="margin-top: 24px;">Create A Account</h1>
+
+        {% if messages %}
+        {% for message in messages %}
+
+        {% if message.tags %}
+        <div class="alert alert-{{message.tags}}" role="alert">
+            {% else %}
+            <div class="alert alert-primary" role="alert">
+                {% endif %}
+                {{message}}
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            <form method="post" action="{% url 'register' %}">
+                {% csrf_token %}
+                <label style="margin-top: 14px;" for="name">First Name: </label>
+                <input class="form-control" type="text" placeholder="Enter Your First Name" name="fname" required>
+
+                <label style="margin-top: 14px;" for="name">Last Name: </label>
+                <input class="form-control" type="text" placeholder="Enter Your Last Name" name="lname" required>
+
+                <label style="margin-top: 14px;" for="name">Username: </label>
+                <input class="form-control" type="text" placeholder="Enter Your User Name" name="uname" required>
+
+                <label style="margin-top: 14px;" for="name">Email: </label>
+                <input class="form-control" type="email" placeholder="Enter Your Email" name="email" required>
+
+                <label style="margin-top: 14px;" for="name">Password: </label>
+                <input class="form-control" type="password" placeholder="Enter Your Password" name="pass1" required>
+
+                <label style="margin-top: 14px;" for="name">Confirm Password: </label>
+                <input class="form-control" type="password" placeholder="Enter Your Password" name="pass2" required>
+
+                <button style="margin-top: 14px;" type="submit" class="btn btn-outline-success">Submit</button>
+
+            </form>
+        </div>
+
+
+
+
+
+    </div>
+
+
+    {% endblock %}

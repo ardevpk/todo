@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Forms{% endblock %}
+{% block content %}
+
+
+<div class="container my-4">
+  <form method="post" action="{% url 'test20' %}">
+    {% csrf_token %}
+    <div>
+      <label for="num1">Num:1</label>
+      <!-- {{fr.num1}} -->
+      <input type="text" name="num1" class="form-control" placeholder="First Value Input" novalidate>
+    </div>
+    <br />
+    <div>
+      <label for="num1">Num:2</label>
+      <!-- {{fr.num2}} -->
+      <input type="text" name="num2" class="form-control" placeholder="Second Value Input" novalidate>
+    </div>
+    <br />
+    <div style="margin-top: 24px">
+      <select class="form-select" name="opt" aria-label="Default select example">
+        <option selected>Select Any Operation</option>
+        <option value="add">+</option>
+        <option value="sub">-</option>
+        <option value="mul">*</option>
+        <option value="div">/</option>
+      </select>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary" style="margin-top: 24px">
+      Submit
+    </button>
+    <br />
+    <br />
+    <h1 style="margin-top: 24px">Output</h1>
+    <h2 style="margin-top: 24px" id="zero">{{output}}</h2>
+  </form>
+</div>
+{% endblock %}

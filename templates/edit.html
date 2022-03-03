@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %} Edit {% endblock %}
+{% block content %}
+
+
+<div class="container-fluid">
+
+
+
+    <!-- Creating A Database From UserInput -->
+    <div class="container">
+        <h1 style="margin-top: 24px;">Change The Given Values</h1>
+
+
+        <form method="post" action="{% url 'edit' editID.id %}">
+            {% csrf_token %}
+            <label style="margin-top: 14px;" for="name">Name: </label>
+            <input class="form-control" type="text" placeholder="Enter Your Name" value="{{ editID.Name }}" name="name"
+                required>
+
+            <label style="margin-top: 14px;" for="name">Title: </label>
+            <input class="form-control" type="text" placeholder="Enter Your Title" value="{{ editID.Title }}"
+                name="title" required>
+
+            <label style="margin-top: 14px;" for="name">Desc: </label>
+            <input class="form-control" type="text" placeholder="Enter Your Desc" value="{{ editID.Desc }}" name="desc"
+                required>
+
+            <button style="margin-top: 14px;" type="submit" class="btn btn-outline-primary">Submit</button>
+
+        </form>
+    </div>
+
+
+</div>
+{% endblock %}

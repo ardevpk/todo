@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}News{% endblock %}
+{% block content %}
+
+
+<div class="container my-4">
+
+    {% if nD %}
+    {% if nD.News_image %}
+
+
+    <!-- <img src="https://ranaihadhoicom.net/aaada/" alt="https://source.unsplash.com/random/"
+        onerror="this.onerror=null; this.src='https\://source.unsplash.com/random/'" width="400px" height="400px"> -->
+    <img src="{{nD.News_image}}" alt="404 Image Not Found"
+        onerror="this.onerror=null; this.src='https\://source.unsplash.com/random/'" width="400px" height="400px">
+    {% endif %}
+    <h3 style="margin-top: 16px;"> {% if nD.News_title %} {{nD.News_title | safe}} {% endif %} </h3>
+    {% if nD.News_author %}
+    <h6>{{nD.News_author}}</h6>
+    <br>
+    {% endif %}
+    {% if nD.News_desc %}
+    <p>{{nD.News_desc | safe}}</p>
+    {% endif %}
+
+    {% endif %}
+
+
+
+</div>
+
+{% endblock %}

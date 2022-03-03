@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutorial</title>
+  </head>
+  <body>
+    <!-- <center><h1>Hi How are you; {{ user }}</h1></center> -->
+    <!-- <center><h1>Hi How are you; {{ META.USERNAME }}</h1></center> -->
+    <center><h1>Printing Dict Items Here...</h1></center>
+    <br />
+    <center>
+      <h3>
+        <ul>
+          <li>{{php}}</li>
+          <li>{{python}}</li>
+          <li>{{django}}</li>
+          <li>{{plist}}</li>
+          <br />
+          <tr>
+            {{plist}}
+          </tr>
+        </ul>
+      </h3>
+    </center>
+    <br />
+    <center>
+      <h2>Printing List of Dict One By one...</h2>
+      <br />
+      <h4>
+        {%for n in plist %} {% if forloop.last %}
+        <li><u>This is the Last item of Dict: </u> {{n}}</li>
+        {% elif forloop.first %}
+        <li><u>This is the First item of Dict: </u> {{n}}</li>
+        {% else %}
+        <li>{{ forloop.counter }}: {{n}}</li>
+        {% endif %} {% endfor %}
+      </h4>
+    </center>
+    <br />
+
+    <center>
+      <h2>Printing List Of Dict of Dict...</h2>
+      <br />
+      {% for p in user_list%}
+      <h4>{{p}}</h4>
+      {% endfor %}
+    </center>
+    <br />
+    <center>
+      <h2>Printing List Of Dict of Dict One By One...</h2>
+      <br />
+      <table border="1" cellpadding="10">
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+        </tr>
+
+        {% for p in user_list%}
+        <tr>
+          <td>{{p.name}}</td>
+          <td>{{p.age}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </center>
+  </body>
+</html>
+
+{% block content %} {% endblock content %}
